@@ -1,16 +1,42 @@
-## Hi there 👋
+# Rijal Family Child Care Website
 
-<!--
-**rijal-child-care/Rijal-Child-Care** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Official website for Rijal Family Child Care, a licensed family child care program in Arlington, Massachusetts.
 
-Here are some ideas to get you started:
+Live website: [rijaldaycare.com](https://www.rijaldaycare.com/)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## About the Website
+
+This static website provides information about:
+
+- Infant, toddler, and preschool programs
+- Daily schedules and curriculum
+- Parent resources and enrollment documents
+- Financial assistance and military fee assistance
+- Family reviews
+- Tour requests and contact information
+
+## Technology
+
+The website is built with:
+
+- HTML
+- CSS
+- JavaScript
+- Vercel for hosting and deployment
+
+No database or server-side application is required.
+
+## Project Structure
+
+```text
+.
+├── public/
+│   ├── documents/
+│   ├── images/
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
+├── .gitignore
+├── README.md
+└── vercel.json
+```
