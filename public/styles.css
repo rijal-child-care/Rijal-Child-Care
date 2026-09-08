@@ -23,8 +23,8 @@ body {
 }
 
 .brand-logo-img {
-  width: 54px;
-  height: 54px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
   border-radius: 16px;
   background: white;
@@ -46,7 +46,7 @@ body {
 }
 
 .nav {
-  width: min(1580px, 98%);
+  width: min(1450px, 96%);
   margin: 20px auto 0;
   background: rgba(255,255,255,.72);
   backdrop-filter: blur(14px);
@@ -54,8 +54,9 @@ body {
   border-radius: 999px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 10px 14px;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
   box-shadow: 0 18px 40px rgba(39,48,79,.1);
   position: sticky;
   top: 14px;
@@ -66,7 +67,7 @@ body {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: 8px;
+  gap: 10px;
   font-family: "Baloo 2", cursive;
   font-size: 26px;
   font-weight: 800;
@@ -78,7 +79,7 @@ body {
   color: var(--ink);
   font-weight: 900;
   margin: 0;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .nav-links {
@@ -86,7 +87,7 @@ body {
   flex: 1;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: nowrap;
   min-width: 0;
   white-space: nowrap;
@@ -96,19 +97,19 @@ body {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: 14px;
+  gap: 10px;
 }
 
 .nav .cta {
   background: var(--coral);
   color: white;
-  padding: 10px 15px;
+  padding: 11px 18px;
   border-radius: 999px;
-  box-shadow: 0 5px 0 #d94b4b;
+  box-shadow: 0 8px 0 #d94b4b;
   white-space: nowrap;
   text-decoration: none;
   font-weight: 900;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .nav .cta.secondary {
@@ -116,10 +117,10 @@ body {
   align-items: center;
   background: white;
   color: var(--ink);
-  border: 2px solid var(--ink);
+  border: 3px solid var(--ink);
   box-shadow: none;
-  padding: 8px 13px;
-  font-size: 16px;
+  padding: 8px 16px;
+  font-size: 15px;
 }
 
 .nav-toggle {
@@ -1240,7 +1241,7 @@ img {
   .nav .cta { padding: 10px 14px; font-size: 15px; }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1360px) {
   .nav {
     display: flex;
     justify-content: flex-start;
@@ -1554,3 +1555,13 @@ img {
     transition: none;
   }
 }
+
+
+/* Display vertical gallery photos without cropping */
+.gallery-slide--portrait img {
+  object-fit: contain;
+  object-position: center;
+  background-color: #f8eed7;
+}
+
+
