@@ -82,6 +82,111 @@ nextBtn.addEventListener('click', () => showStory(storyIndex + 1));
 
 showStory(0);
 
+// Photo gallery carousel
+const galleryCarousel = document.getElementById('galleryCarousel');
+
+if (galleryCarousel) {
+  const galleryTrack = document.getElementById('galleryTrack');
+  const gallerySlides = Array.from(
+    galleryTrack.querySelectorAll('.gallery-slide')
+  );
+
+  const galleryPrevBtn = document.getElementById('galleryPrev');
+  const galleryNextBtn = document.getElementById('galleryNext');
+  const galleryDotsContainer = document.getElementById('galleryDots');
+
+  let galleryIndex = 0;
+
+  function getVisibleGallerySlides() {
+    if (window.innerWidth <= 480) {
+      return 1;
+    }
+
+    if (window.innerWidth <= 900) {
+      return 2;
+    }
+
+    return 3;
+  }
+
+  function createGalleryDots(maxIndex) {
+    galleryDotsContainer.innerHTML = '';
+
+    for (let i = 0; i <= maxIndex; i += 1) {
+      const dot = document.createElement('button');
+
+      dot.className = 'gallery-dot';
+      dot.type = 'button';
+      dot.setAttribute(
+        'aria-label',
+        `Show gallery beginning with photo ${i + 1}`
+      );
+
+      dot.addEventListener('click', () => {
+        galleryIndex = i;
+        updateGalleryCarousel();
+      });
+
+      galleryDotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateGalleryCarousel() {
+    const visibleSlides = getVisibleGallerySlides();
+    const maxIndex = Math.max(
+      0,
+      gallerySlides.length - visibleSlides
+    );
+
+    galleryIndex = Math.min(
+      Math.max(galleryIndex, 0),
+      maxIndex
+    );
+
+    const firstSlide = gallerySlides[0];
+    const trackStyles = window.getComputedStyle(galleryTrack);
+    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
+    const slideWidth = firstSlide.getBoundingClientRect().width;
+    const movement = galleryIndex * (slideWidth + gap);
+
+    galleryTrack.style.transform =
+      `translateX(-${movement}px)`;
+
+    galleryPrevBtn.disabled = galleryIndex === 0;
+    galleryNextBtn.disabled = galleryIndex === maxIndex;
+
+    if (galleryDotsContainer.children.length !== maxIndex + 1) {
+      createGalleryDots(maxIndex);
+    }
+
+    Array.from(galleryDotsContainer.children).forEach(
+      (dot, index) => {
+        dot.classList.toggle(
+          'active',
+          index === galleryIndex
+        );
+      }
+    );
+  }
+
+  galleryPrevBtn.addEventListener('click', () => {
+    galleryIndex -= 1;
+    updateGalleryCarousel();
+  });
+
+  galleryNextBtn.addEventListener('click', () => {
+    galleryIndex += 1;
+    updateGalleryCarousel();
+  });
+
+  const galleryResizeObserver = new ResizeObserver(() => {
+    updateGalleryCarousel();
+  });
+
+  galleryResizeObserver.observe(galleryCarousel);
+  updateGalleryCarousel();
+}
+
 // Tour request form (submits to FormSubmit, shows inline status instead of redirecting)
 const tourForm = document.getElementById('tourForm');
 const formStatus = document.getElementById('formStatus');
