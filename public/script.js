@@ -1,6 +1,5 @@
-// Contact email addresses
+// Contact email address
 const MAIN_EMAIL = 'sharmarijalanju@gmail.com';
-const SECONDARY_EMAIL = 'inquiry@rijaldaycare.com';
 
 // Update footer copyright year
 const yearElement = document.getElementById('year');
@@ -438,7 +437,7 @@ if (tourForm && formStatus) {
       console.error(error);
 
       formStatus.textContent =
-        `Something went wrong. Please email ${MAIN_EMAIL} or ${SECONDARY_EMAIL}.`;
+        `Something went wrong. Please email us directly at ${MAIN_EMAIL}.`;
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
@@ -525,7 +524,7 @@ if (
         console.error(error);
 
         reviewFormStatus.textContent =
-          `Something went wrong. Please email your review to ${MAIN_EMAIL} or ${SECONDARY_EMAIL}.`;
+          `Something went wrong. Please email your review to ${MAIN_EMAIL}.`;
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
